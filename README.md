@@ -6,7 +6,7 @@ Projeto de testes E2E com Playwright para um único site alvo: [Sauce Demo](http
 
 [![CI](https://github.com/mlaurajeronimo/provaTeste-e2e/actions/workflows/node.js.yml/badge.svg)](https://github.com/mlaurajeronimo/provaTeste-e2e/actions/workflows/node.js.yml)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mlaurajeronimo_provaTeste-e2e&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mlaurajeronimo_provaTeste-e2e)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ugioni_playwright-e2e&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ugioni_playwright-e2e)
 
 ## Como executar
 
