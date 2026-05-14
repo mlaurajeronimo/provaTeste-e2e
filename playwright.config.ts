@@ -3,11 +3,12 @@ import { PlaywrightTestConfig } from '@playwright/test';
 const config: PlaywrightTestConfig = {
   testDir: 'src/scenarios',
   timeout: 120000,
-  retries: 0,
+  retries: process.env.CI ? 1 : 0,
   use: {
+    baseURL: process.env.BASE_URL ?? 'https://www.saucedemo.com',
     trace: 'on',
     locale: 'pt-BR',
-    headless: false,
+    headless: true,
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     screenshot: 'on',

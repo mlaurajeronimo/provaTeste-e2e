@@ -1,39 +1,26 @@
 # Playwright E2E
 
+Projeto de testes E2E com Playwright para um único site alvo: [Sauce Demo](https://www.saucedemo.com/).
+
 ## GitHub Actions + SonarCloud
 
-[![Build and Tests](https://github.com/ugioni/playwright-e2e/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/ugioni/playwright-e2e/actions/workflows/node.js.yml)
+[![CI](https://github.com/mlaurajeronimo/provaTeste-e2e/actions/workflows/node.js.yml/badge.svg)](https://github.com/mlaurajeronimo/provaTeste-e2e/actions/workflows/node.js.yml)
 
-</br>
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mlaurajeronimo_provaTeste-e2e&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mlaurajeronimo_provaTeste-e2e)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ugioni_playwright-e2e&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ugioni_playwright-e2e)
+## Como executar
 
-## Getting Started
+1. Instale o [Node.js](https://nodejs.org/) 22 ou superior.
+2. Rode `npm ci`.
+3. Rode `npx playwright install`.
+4. Rode `npm test`.
+5. Rode `npm run show-report` para abrir o relatório HTML.
 
-In order to execute this project you must follow the steps below:
+Os artefatos de execução ficam em `./artifacts`. Para limpar, use `npm run clean`.
 
-1. Install [Node JS](https://nodejs.org/) (version >= 22.x)
-1. Run `npm i --save-dev` to install all the project dependencies
-1. Run `npx playwright install` to install the browsers used by Playwright
-1. Run `npm run ci` to execute the entire test suite
-1. Run `npm run show-report` to visualize the reports
+## Estrutura
 
-All execution artifacts can be found in `./artifacts`, if you want to remove these files run `npm run clean`.
-
-## Using ZeroStep AI
-</br>
-
-To use the AI ​​feature with ZeroStep, you must create the `zerostep.config.json` file in the root of the project and add your ZeroStep token.
-
-## Project Structure
-</br>
-<ul>
-    <li>Scenarios: Test scenario mapping</li>
-    <li>Support: Project structure files
-        <ul>
-            <li>Elements: Mapping the elements of each screen</li>
-            <li>Fixtures: Data configuration files</li>
-            <li>Pages: Logic used to perform actions in tests</li>
-        </ul>
-    </li>
-</ul>
+- `src/scenarios`: cenários de teste.
+- `src/support/pages`: Page Objects usados pelos cenários.
+- `.github/workflows/node.js.yml`: pipeline com Playwright e SonarCloud.
+- `sonar-project.properties`: configuração do projeto no SonarCloud.

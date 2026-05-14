@@ -1,21 +1,17 @@
 import { test } from '@playwright/test';
-import { join } from 'path';
-import { TheConfig } from 'sicolo';
-import CadastroPage from '../support/pages/CadastroPage';
+import SauceDemoPage from '../support/pages/SauceDemoPage';
 
 test.describe('Sauce Demo', () => {
-  const CONFIG = join(__dirname, '../support/fixtures/config.yml');
-  let cadastroPage: CadastroPage;
-  const BASE_URL = TheConfig.fromFile(CONFIG)
-    .andPath('application.sauceDemo')
-    .retrieveData();
+  let sauceDemoPage: SauceDemoPage;
 
   test.beforeEach(async ({ page }) => {
-    cadastroPage = new CadastroPage(page);
-    await page.goto(BASE_URL);
+    sauceDemoPage = new SauceDemoPage(page);
+    await sauceDemoPage.open();
   });
 
-  test('Validação do carrinho', async () => {
-    await cadastroPage.validarCarrinho();
+  test('deve adicionar um produto ao carrinho', async () => {
+    await sauceDemoPage.loginAsStandardUser();
+    await sauceDemoPage.addBackpackToCart();
+    await sauceDemoPage.verifyBackpackInCart();
   });
 });
